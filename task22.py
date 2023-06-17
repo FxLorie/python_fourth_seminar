@@ -14,13 +14,12 @@ for i in range(m):
     listM.append(int(input(f'Значение {i} элемента: ')))
 setN = set(listN)
 setM = set(listM)
-setMN = setN.intersection(setM)
+setMN = setN.intersection(setM) ## функция сразу сортирует значения
 listMN = list(setMN)
-for i in range(0,len(listMN)):
-    for j in range(i+1,len(listMN)):
-        if listMN[j]< listMN[i]:
-            min = listMN[j]
-            listMN[j] = listMN[i]
-            listMN[i] = min
+# for i in range(0,len(listMN)):
+#     for j in range(i+1,len(listMN)):
+#         if listMN[j]< listMN[i]:
+#             min = listMN[j]
+#             listMN[j] = listMN[i]
+#             listMN[i] = min
 print(listMN)
-

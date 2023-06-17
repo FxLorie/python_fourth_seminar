@@ -14,11 +14,17 @@ from random import randint
 
 n = int(input('Введите количество кустов: ')) ## количество кустов на грядке
 A = []
+max_berries = bush = 0
 for i in range(n):
     A.append(randint(10, 20)) ## рандомное количество ягод на кусте
-i = int(input(f'Введите номер куста на грядке от 1 до {n}: ')) - 1 ## номер куста с учетом поправки на -1 (индексация начинается не с 1, а с 0)
-if i == n - 1:
-    sum_berry = A[i-1] + A[i] + A[0] ## если куст последний, А[i+1] будет за пределами, а нам нужно A[0]
-else:
-    sum_berry = A[i-1] + A[i] + A[i+1]
-print(f'Сумма собранных ягод за заход - {sum_berry}')
+print(A)
+for i in range(n):
+    sum_berries = A[i-2] + A[i-1] + A[i]
+    if sum_berries > max_berries:
+        max_berries = sum_berries
+        bush = i ## кусты нумеруются не от 0, а от 1
+# if i == n - 1:
+#     sum_berry = A[i-1] + A[i] + A[0] ## если куст последний, А[i+1] будет за пределами, а нам нужно A[0]
+# else:
+#     sum_berry = A[i-1] + A[i] + A[i+1]
+print(f'Больше всего ягод - {sum_berries}, можно собрать перед {bush} кустом')
